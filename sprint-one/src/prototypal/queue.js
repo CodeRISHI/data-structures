@@ -1,9 +1,8 @@
-var Queue = function(value) {
+var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var newQueue = Object.create(queueMethods);
   newQueue.items = 0;
-  newQueue.value = value;
 
   return newQueue;
 };
@@ -24,7 +23,7 @@ queueMethods.dequeue = function() {
     var temp = this[this.items - 1];
     delete this[this.items - 1];
     this.items--;
-    
+
     return temp;
   }
 
