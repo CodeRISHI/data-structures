@@ -1,20 +1,18 @@
 var Tree = function(value) {
-  var newTree = Object.create(treeMethods);
+  var newTree = Object.create(Tree.prototype);
   newTree.value = value;
   newTree.children = [];
 
   return newTree;
 };
 
-var treeMethods = {};
-
-treeMethods.addChild = function(value) {
+Tree.prototype.addChild = function(value) {
   var newNode = new Tree(value);
   this.children.push(newNode);
 
 };
 
-treeMethods.contains = function(target) {
+Tree.prototype.contains = function(target) {
   var found = false;
 
   var _contains = function(node) {
