@@ -43,7 +43,7 @@ bstMethods.contains = function(target) {
     if (node.left !== null && node.left.value === target) {
       found = true;
       return found;
-    } else if (node.left !== null && node.left.value !== target) {
+    } else if (node.left !== null && node.left.value !== target) {    
       _contains(node.left);
     } 
 
@@ -61,11 +61,29 @@ bstMethods.contains = function(target) {
 
 
 
-bstMethods.depthFirstLog = function() {
+bstMethods.depthFirstLog = function(func) {
 
+  var _depthFirstLog = function(node) {
+    if (node !== null) {
+      func(node.value);
+    }
+
+    if (node.left !== null) {
+      return _depthFirstLog(node.left);
+    } else if (node.right !== null) {
+      return _depthFirstLog(node.right);
+    } else {
+      return;
+    }
+  };
+
+  _depthFirstLog(this);
 };
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ //insert - Logarithmic Time Complexity - O(log n)
+ //contains - Logarithmic Time Complexity - O(log n)
+ //depthFirstLog - Logarithmic Time Complexity - O(log n)
  */
