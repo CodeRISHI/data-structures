@@ -2,22 +2,39 @@
 
 // ------------------------
 // Instantiate a new graph
-var Graph = function() {
+var Graph = function(value) {
+  this.value = value;
+  this.graphNodes = [];
+  this.edges = [];
 };
 
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  this.graphNodes.push(node);
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  var found = false;
+  for (var i = 0; i < this.graphNodes.length; i++) {
+    if (this.graphNodes[i] === node) {
+      found = true;
+      return found;
+    }
+  }
+  return found;
 };
 
 // ------------------------
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
+  for (var i = 0; i < this.graphNodes.length; i++) {
+    if (this.graphNodes[i] === node) {
+      delete this.graphNodes[i];
+    }
+  }
 };
 
 // ------------------------
