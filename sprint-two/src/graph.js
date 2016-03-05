@@ -45,6 +45,9 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
     if (this.edges[i][0] === fromNode && this.edges[i][1] === toNode) {
       found = true;
       return found;
+    } else if (this.edges[i][1] === fromNode && this.edges[i][0] === toNode) {
+      found = true;
+      return found;
     }
   }
   return found;
@@ -62,17 +65,14 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
   // debugger;
-  console.log("in here TEST1");
   for (var i = 0; i < this.edges.length; i++) {
     if (this.edges[i][0] === fromNode && this.edges[i][1] === toNode) {
       this.edges.splice(i, 1);
-      console.log("in here");
     } else if (this.edges[i][1] === fromNode && this.edges[i][0] === toNode) {
       this.edges.splice(i, 1);
     }
   }
   return this.edges;
-  console.log("this.edges: " + this.edges);
 };
 
 // ------------------------
