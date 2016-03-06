@@ -63,7 +63,10 @@ describe('hashTable', function() {
       var lastName = person[1];
       hashTable.insert(firstName, lastName);
     });
+    console.log(hashTable);
     expect(hashTable._limit).to.equal(16);
+    console.log("table", hashTable);
+    // debugger;
     hashTable.remove('George');
     hashTable.remove('Dr.');
     hashTable.remove('Steven');
